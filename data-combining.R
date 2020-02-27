@@ -54,11 +54,14 @@ A_190716<-A_190716[,-1]
 # overlap in the time sequences
 Joined <- union(A_190715,A_190716) 
 
+##########################################################
+# Only do this step when you've joined all files. 
 # Convert "Joined" object to tsibble object
 Joined_tsbls <- Joined %>%
   as_tsibble(
     index=Time
   )
+#########################################################
 
 # simple ggplot line graph for time series 
 Joined_tsbls %>%
