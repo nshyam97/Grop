@@ -1,0 +1,47 @@
+---
+title: "EDA"
+author: "Stanly Palathingal"
+date: "26 February 2020"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = "C:/Users/HP/OneDrive - Newcastle University/Group project")
+```
+
+```{r}
+A= read.csv("code/A.csv")
+B= read.csv("code/B.csv")
+P= read.csv("code/Power.csv")
+```
+
+```{r}
+dim(A)
+dim(B)
+dim(P)
+
+```
+
+
+```{r}
+summary(A)
+```
+```{r}
+summary(B)
+```
+
+```{r}
+summary(P)
+```
+
+```{r}
+var(A[,3:20],na.rm = TRUE)
+```
+
+```{r}
+var(B[,3:14])
+```
+
