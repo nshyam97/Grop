@@ -56,6 +56,7 @@ Sclaed the values to make all under a specific range
 A_scaled=scale(x=A[,3:20],scale=TRUE)
 cov(A_scaled)%>% round(2) %>% View()
 ```
+
 ```{r}
 B_scaled=scale(x=B[,3:20],scale=TRUE)
 cov(B_scaled)%>% round(2) %>% View()
