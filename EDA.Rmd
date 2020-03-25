@@ -1,0 +1,64 @@
+---
+title: "EDA"
+author: "Stanly Palathingal"
+date: "26 February 2020"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = "C:/Users/HP/OneDrive - Newcastle University/Group project")
+```
+
+
+```{r}
+library(magrittr)
+library(tables)
+```
+
+```{r}
+A= read.csv("Data/A.csv")
+B= read.csv("Data/B.csv")
+P= read.csv("Data/Power.csv")
+```
+
+```{r}
+dim(A)
+dim(B)
+dim(P)
+
+```
+
+
+```{r}
+summary(A)
+```
+
+```{r}
+summary(B)
+```
+
+```{r}
+summary(P)
+```
+There are six rows with no values and considering the number of rows they can be eliminated. In A there are 4, abd the otehr two have 6 null rows.
+```{r}
+A=na.omit(A)
+B=na.omit(B)
+P=na.omit(P)
+```
+
+Sclaed the values to make all under a specific range
+
+```{r}
+A_scaled=scale(x=A[,3:20],scale=TRUE)
+cov(A_scaled)%>% round(2) %>% View()
+```
+
+```{r}
+B_scaled=scale(x=B[,3:20],scale=TRUE)
+cov(B_scaled)%>% round(2) %>% View()
+```
+
