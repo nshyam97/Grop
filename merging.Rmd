@@ -14,7 +14,7 @@ Define the working directory. There are three directories.
     second is the datast. 
     Third is the data folder where the combine data will be stored.
 
-```{r}
+```{r,include=TRUE}
 library(plyr)
 library(readr)
 library(magrittr)
@@ -27,9 +27,13 @@ A_K2 = list.files(path="Dataset/Stack_3", pattern="*A_K2.csv", full.names=TRUE)
 B_K2 = list.files(path="Dataset/Stack_3", pattern="*B_K2.csv", full.names=TRUE)
 Power = list.files(path="Dataset/Stack_3", pattern="*POWER.csv", full.names=TRUE)
 
-A_K2 %>% ldply(read.csv) %>% write.csv("Data/A.csv",row.names = FALSE)
-B_K2 %>% ldply(read.csv) %>% write.csv("Data/B.csv",row.names = FALSE)
-Power %>% ldply(read.csv) %>% write.csv("Data/Power.csv",row.names = FALSE)
+A_K2 %>% ldply(read.csv) %>%unique()%>% write.csv("Data/A.csv",row.names = FALSE)
+B_K2 %>% ldply(read.csv) %>%unique()%>% write.csv("Data/B.csv",row.names = FALSE)
+Power %>% ldply(read.csv) %>%unique()%>% write.csv("Data/Power.csv",row.names = FALSE)
+
+
+
+
 ```
 
 
