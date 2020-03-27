@@ -1,4 +1,4 @@
-## Stack 4 merging files 
+## Merging files 
 
 # Import Libraries
 library(readr)
@@ -6,9 +6,7 @@ library(plyr)
 library(magrittr)
 library(lubridate)   # work with dates
 
-# Set working directory
-setwd("~/Desktop/KAUTHAR/MSc Data Science/10. Group Project/")
-mydir = "Dataset/Stack_4"
+mydir = "Stack_1" # Change this to direct to your data directory
 
 # List files 
 A_K2 = list.files(path = mydir, pattern = "*A_K2.csv", full.names = TRUE)
@@ -16,17 +14,11 @@ B_K2 = list.files(path = mydir, pattern = "*B_K2.csv", full.names = TRUE)
 Power = list.files(path = mydir, pattern = "*POWER.csv", full.names = TRUE)
 
 # Read csv
-A_df = A_K2 %>% ldply(read.csv) %>% unique()
-B_df = B_K2 %>% ldply(read.csv) %>% unique()
-Power_df = Power %>% ldply(read.csv) %>% unique()
-
-# Change time format
-A_df$Time = dmy_hms(A_df$Time)
-B_df$Time = dmy_hms(B_df$Time)
-Power_df$Time = dmy_hms(Power_df$Time)
+A_df = A_K2 %>% ldply(read.csv) %>% unique() %>% mutate(Time = as.POSIXct(Time, format="%d/%m/%Y %H:%M:%S"))
+B_df = B_K2 %>% ldply(read.csv) %>% unique() %>% mutate(Time = as.POSIXct(Time, format="%d/%m/%Y %H:%M:%S"))
+Power_df = Power %>% ldply(read.csv) %>% unique() %>% mutate(Time = as.POSIXct(Time, format="%d/%m/%Y %H:%M:%S"))
 
 # Save combine data as new csv
-write.csv(A_df, "stack4_A.csv", row.names = FALSE)
-write.csv(B_df, "stack4_B.csv", row.names = FALSE)
-write.csv(Power_df, "stack4_Pow.csv", row.names = FALSE)
-
+write.csv(A_df, "A.csv", row.names = FALSE)
+write.csv(B_df, "B.csv", row.names = FALSE)
+write.csv(Power_df, "Pow.csv", row.names = FALSE)
