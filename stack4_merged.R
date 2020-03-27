@@ -1,9 +1,7 @@
 ## Stack 4 merging files 
 
 # Import Libraries
-library(readr)
-library(plyr)
-library(magrittr)
+library(tidyverse)
 library(lubridate)   # work with dates
 
 # Set working directory
