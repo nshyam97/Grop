@@ -13,9 +13,9 @@ knitr::opts_knit$set(root.dir = "C:/Users/HP/OneDrive - Newcastle University/Gro
 ```
 
 
-```{r}
+```{r, include=FALSE}
 library(magrittr)
-library(tables)
+library(dplyr)
 ```
 
 ```{r}
@@ -53,12 +53,32 @@ P=na.omit(P)
 Sclaed the values to make all under a specific range
 
 ```{r}
-A_scaled=scale(x=A[,3:20],scale=TRUE)
+A_scaled=scale(x=A[,3:26],scale=TRUE)
 cov(A_scaled)%>% round(2) %>% View()
 ```
 
+# in file B
+
 ```{r}
-B_scaled=scale(x=B[,3:20],scale=TRUE)
+B_scaled=scale(x=B[,3:32],scale=TRUE)
 cov(B_scaled)%>% round(2) %>% View()
+```
+
+```{r}
+colnames(B)
+```
+The 'AIRCON_REQUEST_NODE_' values are there only for 3 nodes
+The nodes 4,5 and 6 are always 0
+
+```{r}
+filter(B,AIRCON_REQUEST_NODE_1 == 1)%>%View()
+```
+
+```{r}
+filter(B,AIRCON_REQUEST_NODE_2 == 1)%>%View()
+```
+
+```{r}
+filter(B,AIRCON_REQUEST_NODE_3 == 1)%>%View()
 ```
 
