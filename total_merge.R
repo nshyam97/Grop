@@ -39,6 +39,6 @@ Battery_B <- Battery_B[,-1]
 
 Power <- do.call(rbind, Power)
 Power <- unique(Power)
-Power <- Power[,-1]
+Power <- Battery_A[,-1]
 
 
