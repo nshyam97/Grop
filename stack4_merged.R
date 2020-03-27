@@ -1,12 +1,13 @@
 ## Stack 4 merging files 
 
 # Import Libraries
+library(plyr)
 library(tidyverse)
 library(lubridate)   # work with dates
 
 # Set working directory
-setwd("~/Desktop/KAUTHAR/MSc Data Science/10. Group Project/")
-mydir = "Dataset/Stack_4"
+#setwd("~/Desktop/KAUTHAR/MSc Data Science/10. Group Project/")
+mydir = "C:/Users/Qayyim/Documents/Group-Project-CSC8633/Stack_2"
 
 # List files 
 A_K2 = list.files(path = mydir, pattern = "*A_K2.csv", full.names = TRUE)
@@ -24,7 +25,7 @@ B_df$Time = dmy_hms(B_df$Time)
 Power_df$Time = dmy_hms(Power_df$Time)
 
 # Save combine data as new csv
-write.csv(A_df, "stack4_A.csv", row.names = FALSE)
-write.csv(B_df, "stack4_B.csv", row.names = FALSE)
-write.csv(Power_df, "stack4_Pow.csv", row.names = FALSE)
+write.csv(A_df, "stack2_A.csv", row.names = FALSE)
+write.csv(B_df, "stack2_B.csv", row.names = FALSE)
+write.csv(Power_df, "stack2_Pow.csv", row.names = FALSE)
 
