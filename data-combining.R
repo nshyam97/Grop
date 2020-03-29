@@ -22,6 +22,11 @@ A_df <- A_df[,-1]
 B_df <- B_df[,-1]
 Power_df <- Power_df[,-1]
 
+# Ordering dataframes by time
+A_df = arrange(A_df, Time)
+B_df = arrange(B_df, Time)
+Power_df = arrange(Power_df, Time)
+
 # Save combine data as new csv
 write.csv(A_df, "A.csv", row.names = FALSE)
 write.csv(B_df, "B.csv", row.names = FALSE)
