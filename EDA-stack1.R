@@ -1,5 +1,6 @@
 library(ggplot2)
 library(scales)
+options(digits = 6)
 
 # Plot lines of all minimum voltages
 ggplot(data = A_df) + geom_line(aes(Time, vtCellMinBatt1a, color='1a')) + 
@@ -40,4 +41,11 @@ ggplot(data = A_df) + geom_point(aes(A_df$Time, SOC_Batt_2a*8), alpha=0.2) +
   theme(legend.position="right") +
   scale_y_continuous(sec.axis = sec_axis(~./8, name = "State of Charge"))
 
+# Summarise Battery A by day
+day_df <- A_df %>%
+  group_by(day = date(A_df$Time)) %>%
+  summarise_all(list(mean))
+
+# Plot minimum of Battery 1a per day
+ggplot(data=day_df) + geom_line(aes(day, vtCellMinBatt1a))
 
