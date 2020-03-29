@@ -1,9 +1,8 @@
 ## Merging files 
 
 # Import Libraries
-library(readr)
 library(plyr)
-library(magrittr)
+library(tidyverse)
 library(lubridate)   # work with dates
 
 mydir = "Stack_1" # Change this to direct to your data directory
@@ -17,6 +16,11 @@ Power = list.files(path = mydir, pattern = "*POWER.csv", full.names = TRUE)
 A_df = A_K2 %>% ldply(read.csv) %>% unique() %>% mutate(Time = as.POSIXct(Time, format="%d/%m/%Y %H:%M:%S"))
 B_df = B_K2 %>% ldply(read.csv) %>% unique() %>% mutate(Time = as.POSIXct(Time, format="%d/%m/%Y %H:%M:%S"))
 Power_df = Power %>% ldply(read.csv) %>% unique() %>% mutate(Time = as.POSIXct(Time, format="%d/%m/%Y %H:%M:%S"))
+
+# Remove ID column
+A_df <- A_df[,-1]
+B_df <- B_df[,-1]
+Power_df <- Power_df[,-1]
 
 # Save combine data as new csv
 write.csv(A_df, "A.csv", row.names = FALSE)
