@@ -1,12 +1,12 @@
 ## Merging files 
 
 # Import Libraries
-library(readr)
+#library(readr)
 library(plyr)
-library(magrittr)
+library(tidyverse)
 library(lubridate)   # work with dates
 
-mydir = "Stack_1" # Change this to direct to your data directory
+mydir = "Stack_2" # Change this to direct to your data directory
 
 # List files 
 A_K2 = list.files(path = mydir, pattern = "*A_K2.csv", full.names = TRUE)
