@@ -22,13 +22,15 @@ B_hour_df <- B_df %>%
   group_by(day = date(B_df$Time), hour = hour(B_df$Time)) %>%
   summarise_all(list(mean))
 
-# Plot Temp Min and SOC for cell 1a against time (per hour)
-ggplot(data = A_hour_df) + 
-  geom_line(aes(day, SOC_Batt_1a/2, color="SOC"), alpha=0.5) +
-  geom_line(data=B_hour_df, aes(day, TempMinBatt1a, color="Temp-Min")) +
-  geom_line(data=B_hour_df, aes(day, TempMaxBatt1a, color="Temp-Max")) +
-  theme(legend.position="right") +
-  scale_y_continuous(sec.axis = sec_axis(~.*2, name = "State of Charge"))
+# Summarise Power by day
+power_day_df <- Power_df %>%
+  group_by(day = date(Power_df$Time)) %>%
+  summarise_all(list(mean))
+
+# Summarise Power by hour
+power_hour_df <- Power_df %>%
+  group_by(day = date(Power_df$Time), hour = hour(Power_df$Time)) %>%
+  summarise_all(list(mean))
 
 # Dates with significant spikes
 dates_to_monitor = list(as.Date("2019-07-24"), 
@@ -40,18 +42,22 @@ dates_to_monitor = list(as.Date("2019-07-24"),
 # 24/25th July
 A2507 = filter(A_hour_df, day == dates_to_monitor[1] | day == dates_to_monitor[2])
 B2507 = filter(B_hour_df, day == dates_to_monitor[1] | day == dates_to_monitor[2])
+P2507 = filter(power_hour_df, day == dates_to_monitor[1] | day == dates_to_monitor[2])
 
 # 9th December
-A0912 = filter(A_hour_df, day == dates_to_monitor[2])
-B0912 = filter(B_hour_df, day == dates_to_monitor[2])
+A0912 = filter(A_hour_df, day == dates_to_monitor[3])
+B0912 = filter(B_hour_df, day == dates_to_monitor[3])
+P0912 = filter(power_hour_df, day == dates_to_monitor[3])
 
 # 12th December
-A1212 = filter(A_hour_df, day == dates_to_monitor[3])
-B1212 = filter(B_hour_df, day == dates_to_monitor[3])
+A1212 = filter(A_hour_df, day == dates_to_monitor[4])
+B1212 = filter(B_hour_df, day == dates_to_monitor[4])
+P1212 = filter(power_hour_df, day == dates_to_monitor[4])
 
 # 9th January
-A0901 = filter(A_hour_df, day == dates_to_monitor[4])
-B0901 = filter(B_hour_df, day == dates_to_monitor[4])
+A0901 = filter(A_hour_df, day == dates_to_monitor[5])
+B0901 = filter(B_hour_df, day == dates_to_monitor[5])
+P0901 = filter(power_hour_df, day == dates_to_monitor[5])
 
 # Plotting SOC and Temps 1a against hour
 ggplot(data = A2507) +
@@ -76,8 +82,37 @@ ggplot(data = A1212) +
   scale_y_continuous(sec.axis = sec_axis(~.*1.76, name = "State of Charge"))
 
 ggplot(data = A0901) +
-  geom_line(aes(Time, SOC_Batt_1a/1.76, color="SOC-a")) +
+  geom_line(aes(Time, SOC_Batt_1a/1.76, color="Bus Volts")) +
   geom_line(data=B0901, aes(Time, TempMinBatt1a, color="Temp-Min-a")) +
   geom_line(data=B0901, aes(Time, TempMaxBatt1a, color="Temp-Max-a")) +
   theme(legend.position="right") +
-  scale_y_continuous(sec.axis = sec_axis(~.*1.76, name = "State of Charge"))
+  scale_y_continuous(sec.axis = sec_axis(~.*1.76, name = "Bus Volts"))
+
+# Plotting bus volts and Temps 1a against hour
+ggplot(data = A2507) +
+  geom_line(aes(Time, vtBusVoltsBatt1a/15, color="Bus Volts")) +
+  geom_line(data=B2507, aes(Time, TempMinBatt1a, color="Temp-Min")) +
+  geom_line(data=B2507, aes(Time, TempMaxBatt1a, color="Temp-Max")) +
+  theme(legend.position="right") +
+  scale_y_continuous(sec.axis = sec_axis(~.*15, name = "Bus Volts"))
+
+ggplot(data = A0912) +
+  geom_line(aes(Time, vtBusVoltsBatt1a/15, color="Bus Volts")) +
+  geom_line(data=B0912, aes(Time, TempMinBatt1a, color="Temp-Min-a")) +
+  geom_line(data=B0912, aes(Time, TempMaxBatt1a, color="Temp-Max-a")) +
+  theme(legend.position="right") +
+  scale_y_continuous(sec.axis = sec_axis(~.*15, name = "Bus Volts"))
+
+ggplot(data = A1212) +
+  geom_line(aes(Time, vtBusVoltsBatt1a/15, color="Bus Volts")) +
+  geom_line(data=B1212, aes(Time, TempMinBatt1a, color="Temp-Min-a")) +
+  geom_line(data=B1212, aes(Time, TempMaxBatt1a, color="Temp-Max-a")) +
+  theme(legend.position="right") +
+  scale_y_continuous(sec.axis = sec_axis(~.*15, name = "Bus Volts"))
+
+ggplot(data = A0901) +
+  geom_line(aes(Time, vtBusVoltsBatt1a/15, color="Bus Volts")) +
+  geom_line(data=B0901, aes(Time, TempMinBatt1a, color="Temp-Min-a")) +
+  geom_line(data=B0901, aes(Time, TempMaxBatt1a, color="Temp-Max-a")) +
+  theme(legend.position="right") +
+  scale_y_continuous(sec.axis = sec_axis(~.*15, name = "Bus Volts"))
