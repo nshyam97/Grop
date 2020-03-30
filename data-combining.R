@@ -18,6 +18,20 @@ A_df = A_K2 %>% ldply(read.csv) %>% unique() %>% mutate(Time = as.POSIXct(Time, 
 B_df = B_K2 %>% ldply(read.csv) %>% unique() %>% mutate(Time = as.POSIXct(Time, format="%d/%m/%Y %H:%M:%S"))
 Power_df = Power %>% ldply(read.csv) %>% unique() %>% mutate(Time = as.POSIXct(Time, format="%d/%m/%Y %H:%M:%S"))
 
+# Removing columns that are not necessary or inaccurate according to "data_dictionary"
+# A_df
+A_df=A_df[,-1]
+
+# B_df
+B_df=B_df[,c(2:14,27:32)]
+
+# Power_df
+Power_df=Power_df[,c(2:5,12,14)]
+
+
+#################################################################
+# Creating single file for "system_data"
+
 mydir="system_data" # Directory for system data
 
 # List system data files
@@ -41,3 +55,4 @@ names(P_demand)[1] <- "Time"
 write.csv(A_df, "A.csv", row.names = FALSE)
 write.csv(B_df, "B.csv", row.names = FALSE)
 write.csv(Power_df, "Pow.csv", row.names = FALSE)
+write.csv(P_demand, "P_demand.csv", row.names = FALSE)
