@@ -37,15 +37,33 @@ ggplot(data = A_df) + geom_point(aes(A_df$Time, SOC_Batt_2a/12), alpha=0.2) +
 # Plot point and line of bus volts 2a and soc 2a
 ggplot(data = A_df) + geom_point(aes(A_df$Time, SOC_Batt_2a*8), alpha=0.2) +
   geom_line(aes(Time, vtBusVoltsBatt2a, color='Max')) +
-  scale_x_datetime(labels = date_format("%b")) +
+  scale_x_datetime(labels = date_format("%m")) +
   theme(legend.position="right") +
   scale_y_continuous(sec.axis = sec_axis(~./8, name = "State of Charge"))
 
 # Summarise Battery A by day
-day_df <- A_df %>%
+A_day_df <- A_df %>%
   group_by(day = date(A_df$Time)) %>%
   summarise_all(list(mean))
 
-# Plot minimum of Battery 1a per day
-ggplot(data=day_df) + geom_line(aes(day, vtCellMinBatt1a))
+# Summarise Battery A by hour
+A_hour_df <- A_df %>%
+  group_by(day = date(A_df$Time), hour = hour(A_df$Time)) %>%
+  summarise_all(list(mean))
 
+# Summarise Battery B by day
+B_day_df <- B_df %>%
+  group_by(day = date(B_df$Time)) %>%
+  summarise_all(list(mean))
+
+# Summarise Battery B by hour
+B_hour_df <- B_df %>%
+  group_by(day = date(B_df$Time), hour = hour(B_df$Time)) %>%
+  summarise_all(list(mean))
+
+# Plot Temp Min and SOC for cell 1a against time (per hour)
+ggplot(data = A_hour_df) + 
+  geom_line(aes(day, SOC_Batt_1a/2, color="SOC"), alpha=0.5) +
+  geom_line(data=B_hour_df, aes(day, TempMinBatt1a, color="Temp-Min")) +
+  theme(legend.position="right") +
+  scale_y_continuous(sec.axis = sec_axis(~.*2, name = "State of Charge"))
