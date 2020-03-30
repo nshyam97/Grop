@@ -116,3 +116,32 @@ ggplot(data = A0901) +
   geom_line(data=B0901, aes(Time, TempMaxBatt1a, color="Temp-Max-a")) +
   theme(legend.position="right") +
   scale_y_continuous(sec.axis = sec_axis(~.*15, name = "Bus Volts"))
+
+# Plotting average SOC and Temps 1a against hour
+ggplot(data = P2507) +
+  geom_line(aes(Time, Average_Battery_SOC/1.5, color="Avg SOC")) +
+  geom_line(data=B2507, aes(Time, TempMinBatt1a, color="Temp-Min")) +
+  geom_line(data=B2507, aes(Time, TempMaxBatt1a, color="Temp-Max")) +
+  theme(legend.position="right") +
+  scale_y_continuous(sec.axis = sec_axis(~.*1.5, name = "Avg SOC"))
+
+ggplot(data = P0912) +
+  geom_line(aes(Time, Average_Battery_SOC/1.5, color="Avg SOC")) +
+  geom_line(data=B0912, aes(Time, TempMinBatt1a, color="Temp-Min-a")) +
+  geom_line(data=B0912, aes(Time, TempMaxBatt1a, color="Temp-Max-a")) +
+  theme(legend.position="right") +
+  scale_y_continuous(sec.axis = sec_axis(~.*1.5, name = "Avg SOC"))
+
+ggplot(data = P1212) +
+  geom_line(aes(Time, Average_Battery_SOC/1.5, color="Avg SOC")) +
+  geom_line(data=B1212, aes(Time, TempMinBatt1a, color="Temp-Min-a")) +
+  geom_line(data=B1212, aes(Time, TempMaxBatt1a, color="Temp-Max-a")) +
+  theme(legend.position="right") +
+  scale_y_continuous(sec.axis = sec_axis(~.*1.5, name = "Avg SOC"))
+
+ggplot(data = P0901) +
+  geom_line(aes(Time, Average_Battery_SOC/1.5, color="Avg SOC")) +
+  geom_line(data=B0901, aes(Time, TempMinBatt1a, color="Temp-Min-a")) +
+  geom_line(data=B0901, aes(Time, TempMaxBatt1a, color="Temp-Max-a")) +
+  theme(legend.position="right") +
+  scale_y_continuous(sec.axis = sec_axis(~.*1.5, name = "Avg SOC"))
