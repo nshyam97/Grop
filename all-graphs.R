@@ -8,7 +8,7 @@ library(scales)
 options(digits = 6)
 
 # Set working directory
-setwd("~/Desktop/KAUTHAR/MSc Data Science/10. Group Project/")
+#setwd("~/Desktop/KAUTHAR/MSc Data Science/10. Group Project/")
 
 # Read csv files
 A = read.csv("A.csv")
