@@ -653,4 +653,21 @@ ggplot(data = power_flow5) +
   coord_cartesian(xlim = c(xlim_0_5,xlim_end_5),expand=FALSE)+
   guides(color=guide_legend(title="Temperature"))+
   theme(legend.position = "right",panel.spacing.x =unit(2.5,"lines")) 
-
+########################################################################
+ggplot(data = B) +
+  geom_line(aes(Time, TempMaxBatt1a/12, color="Temp-Max-1a")) +
+  geom_line(aes(Time, TempMaxBatt1b/12, color="Temp-Max-1b")) +
+  geom_line(aes(Time, TempMaxBatt2a/12, color="Temp-Max-2a")) +
+  geom_line(aes(Time, TempMaxBatt2b/12, color="Temp-Max-2b")) +
+  geom_line(aes(Time, TempMaxBatt3a/12, color="Temp-Max-3a")) +
+  geom_line(aes(Time, TempMaxBatt3b/12, color="Temp-Max-3b")) +
+  geom_line(aes(Time, AIRCON_REQUEST_NODE_1, color="Node 1")) +
+  geom_line(aes(Time, AIRCON_REQUEST_NODE_2, color="Node 2")) +
+  geom_line(aes(Time, AIRCON_REQUEST_NODE_3, color="Node 3")) +
+  geom_line(aes(Time, AIRCON_REQUEST_NODE_4, color="Node 4")) +
+  geom_line(aes(Time, AIRCON_REQUEST_NODE_5, color="Node 5")) +
+  geom_line(aes(Time, AIRCON_REQUEST_NODE_6, color="Node 6")) +
+  theme(legend.position = "right", axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(y = "Aircon Request (1 = Request)") +
+  scale_x_datetime(breaks = "2 weeks", labels = date_format("%d-%m-%y")) +
+  scale_y_continuous(sec.axis = sec_axis(~.*12, name = "Temperature (°C)"))
