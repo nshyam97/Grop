@@ -24,6 +24,11 @@ sum(is.na(P_demand))
 # Omit null values in power file
 P = na.omit(P)
 
+A$Time= ymd_hms(A$Time)
+B$Time= ymd_hms(B$Time)
+P$Time= ymd_hms(P$Time)
+P_demand$Time= ymd_hms(P_demand$Time)
+
 ############################################################
 
 # Summarise Battery A by day
@@ -59,45 +64,73 @@ P_hour_df <- P %>%
 ############################################################
 
 # Dates to monitor
+# Dates with significant spikes
+dates_to_monitor = list(as.Date("2019-07-24"), 
+                        as.Date("2019-07-25"),
+                        as.Date("2019-12-09"), 
+                        as.Date("2019-12-12"), 
+                        as.Date("2020-01-09"))
 
-# 24-25 July 2019
-A2507 = A_hour_df[A_hour_df$day >= "2019-07-24" & A_hour_df$day <= "2019-07-25",]
-B2507 = B_hour_df[B_hour_df$day >= "2019-07-24" & B_hour_df$day <= "2019-07-25",]
-P2507 = P_hour_df[P_hour_df$day >= "2019-07-24" & P_hour_df$day <= "2019-07-25",]
+# 24/25th July
+A2507 = filter(A_hour_df, day == dates_to_monitor[1] | day == dates_to_monitor[2])
+B2507 = filter(B_hour_df, day == dates_to_monitor[1] | day == dates_to_monitor[2])
+P2507 = filter(P_hour_df, day == dates_to_monitor[1] | day == dates_to_monitor[2])
 
-# 9 Dec 2019
-A0912 = A_hour_df[A_hour_df$day == "2019-12-09",]
-B0912 = B_hour_df[B_hour_df$day == "2019-12-09",]
-P0912 = P_hour_df[P_hour_df$day == "2019-12-09",]
+# 9th December
+A0912 = filter(A_hour_df, day == dates_to_monitor[3])
+B0912 = filter(B_hour_df, day == dates_to_monitor[3])
+P0912 = filter(P_hour_df, day == dates_to_monitor[3])
 
-# 12 Dec 2019
-A1212 = A_hour_df[A_hour_df$day == "2019-12-12",]
-B1212 = B_hour_df[B_hour_df$day == "2019-12-12",]
-P1212 = P_hour_df[P_hour_df$day == "2019-12-12",]
+# 12th December
+A1212 = filter(A_hour_df, day == dates_to_monitor[4])
+B1212 = filter(B_hour_df, day == dates_to_monitor[4])
+P1212 = filter(P_hour_df, day == dates_to_monitor[4])
 
-# 9 Jan 2020
-A0901 = A_hour_df[A_hour_df$day == "2020-01-09",]
-B0901 = B_hour_df[B_hour_df$day == "2020-01-09",]
-P0901 = P_hour_df[P_hour_df$day == "2020-01-09",]
+# 9th January
+A0901 = filter(A_hour_df, day == dates_to_monitor[5])
+B0901 = filter(B_hour_df, day == dates_to_monitor[5])
+P0901 = filter(P_hour_df, day == dates_to_monitor[5])
 
-############################################################
+# # 24-25 July 2019
+# A2507 = A_hour_df[A_hour_df$day >= "2019-07-24" & A_hour_df$day <= "2019-07-25",]
+# B2507 = B_hour_df[B_hour_df$day >= "2019-07-24" & B_hour_df$day <= "2019-07-25",]
+# P2507 = P_hour_df[P_hour_df$day >= "2019-07-24" & P_hour_df$day <= "2019-07-25",]
+# 
+# # 9 Dec 2019
+# A0912 = A_hour_df[A_hour_df$day == "2019-12-09",]
+# B0912 = B_hour_df[B_hour_df$day == "2019-12-09",]
+# P0912 = P_hour_df[P_hour_df$day == "2019-12-09",]
+# 
+# # 12 Dec 2019
+# A1212 = A_hour_df[A_hour_df$day == "2019-12-12",]
+# B1212 = B_hour_df[B_hour_df$day == "2019-12-12",]
+# P1212 = P_hour_df[P_hour_df$day == "2019-12-12",]
+# 
+# # 9 Jan 2020
+# A0901 = A_hour_df[A_hour_df$day == "2020-01-09",]
+# B0901 = B_hour_df[B_hour_df$day == "2020-01-09",]
+# P0901 = P_hour_df[P_hour_df$day == "2020-01-09",]
 
-# Add index to plot
-'A2507 = cbind(i = c(1:48), A2507)
-B2507 = cbind(i = c(1:48), B2507)
-P2507 = cbind(i = c(1:48), P2507)
 
-A0912 = cbind(i = c(1:24), A0912)
-B0912 = cbind(i = c(1:24), B0912)
-P0912 = cbind(i = c(1:24), P0912)
 
-A1212 = cbind(i = c(1:24), A1212)
-B1212 = cbind(i = c(1:24), B1212)
-P1212 = cbind(i = c(1:24), P1212)
-
-A0901 = cbind(i = c(1:24), A0901)
-B0901 = cbind(i = c(1:24), B0901)
-P0901 = cbind(i = c(1:24), P0901)'
+# ############################################################
+# 
+# # Add index to plot
+# A2507 = cbind(i = c(1:48), A2507)
+# B2507 = cbind(i = c(1:48), B2507)
+# P2507 = cbind(i = c(1:48), P2507)
+# 
+# A0912 = cbind(i = c(1:24), A0912)
+# B0912 = cbind(i = c(1:24), B0912)
+# P0912 = cbind(i = c(1:24), P0912)
+# 
+# A1212 = cbind(i = c(1:24), A1212)
+# B1212 = cbind(i = c(1:24), B1212)
+# P1212 = cbind(i = c(1:24), P1212)
+# 
+# A0901 = cbind(i = c(1:24), A0901)
+# B0901 = cbind(i = c(1:24), B0901)
+# P0901 = cbind(i = c(1:24), P0901)
 
 ############################################################
 
@@ -107,36 +140,45 @@ P0901 = cbind(i = c(1:24), P0901)'
 # 1. 24-25 JUL 2019
 # Select and combine data 
 A2507_SOC = A2507 %>% 
-            dplyr::select(i, day, hour, 
+            dplyr::select(Time,day, hour, 
                           SOC_Batt_1a, SOC_Batt_1b,
                           SOC_Batt_2a, SOC_Batt_2b, 
                           SOC_Batt_3a, SOC_Batt_3b) %>%
-            gather(key = "SOC", value = "value1", -c(i, day, hour))
+            gather(key = "SOC", value = "value1", -c(Time,day, hour))
 
 B2507_tempMin = B2507 %>% 
-                dplyr::select(TempMinBatt1a, TempMinBatt1b,
+                dplyr::select(day,hour,
+                              TempMinBatt1a, TempMinBatt1b,
                               TempMinBatt2a, TempMinBatt2b, 
                               TempMinBatt3a, TempMinBatt3b) %>%
-                gather(key = "MinTemp", value = "value2")
+                gather(key = "MinTemp", value = "value2",-c(day, hour))
 
 B2507_tempMax = B2507 %>% 
-                dplyr::select(TempMaxBatt1a, TempMaxBatt1b, 
+                dplyr::select(day, hour,
+                              TempMaxBatt1a, TempMaxBatt1b, 
                               TempMaxBatt2a, TempMaxBatt2b,
                               TempMaxBatt3a, TempMaxBatt3b) %>%
-                gather(key = "MaxTemp", value = "value3")
+                gather(key = "MaxTemp", value = "value3",-c(day, hour))
 
 SOC_temp_2507 = as.data.frame(c(A2507_SOC, B2507_tempMin, B2507_tempMax))
 head(SOC_temp_2507)
 
+# Xlimits
+xlim_0=ymd_hms("2019-07-24 00:00:00")
+xlim_end=ymd_hms("2019-07-26 00:00:00")
+
 ggplot(data = SOC_temp_2507) +
-  geom_line(aes(i, value1/1.76)) +
+  geom_line(aes(Time, value1/1.76)) +
   scale_y_continuous(sec.axis = sec_axis(~.*1.76, name = "State of Charge (%)")) +
-  labs(x = "Time (hour)", y = "Temperature (C)", 
-       title = "SOC and Temp on 24-25 JUL 2019") + 
+  labs(x = "Time of Day (hour)", y = "Temperature (C)", 
+       title = "SOC and Temperature on 24-25 JUL 2019") + 
   facet_wrap(.~SOC, nrow = 2) +
-  geom_line(aes(i, value2, color="Min Temp")) +
-  geom_line(aes(i, value3, color="Max Temp")) +
-  theme(legend.position = "right") 
+  geom_line(aes(Time, value2, color="Min Temp")) +
+  geom_line(aes(Time, value3, color="Max Temp")) +
+  scale_x_datetime(date_breaks = "12 hours", date_labels = "%a-%d\n%H:%M")+
+  coord_cartesian(xlim = c(xlim_0,xlim_end),expand=FALSE)+
+  guides(color=guide_legend(title="Temperature"))+
+  theme(legend.position = "right",panel.spacing.x =unit(2.5,"lines")) 
 
 
 # 2. 9 DEC 2019
