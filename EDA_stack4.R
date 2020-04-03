@@ -4,9 +4,6 @@
 library(tidyverse)
 library(ggplot2)
 
-# Set working directory
-setwd("~/Desktop/KAUTHAR/MSc Data Science/10. Group Project/")
-
 # Read csv files
 A = read.csv("stack4_A.csv")
 B = read.csv("stack4_B.csv")

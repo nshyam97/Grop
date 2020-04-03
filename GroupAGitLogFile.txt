@@ -1,0 +1,340 @@
+commit c61d8938a3a4872bcf9ef34ea7bf72ed258fe32c
+Author: Nish Shyam <nshyam668@gmail.com>
+Date:   Thu Apr 2 19:47:43 2020 +0100
+
+    Cleaned out the repository for submission (#19)
+
+commit c03402558ec7595b384ce6b85f7689ec33c39153
+Author: Nish Shyam <nshyam668@gmail.com>
+Date:   Thu Apr 2 12:47:03 2020 +0100
+
+    Stack1 eda (#18)
+    
+    * Started work on EDA
+    
+    * Added summary for days
+    
+    * Added summaries for each hour
+    
+    * Cleaned EDA code and focused on days with significant spikes
+    
+    * Added power day and hour data
+    
+    * Added power comparison graph
+
+commit 51490a977846e61e9352c651ac98c70e0fc66ba0
+Merge: fb433a9 cef7695
+Author: qayyim24 <52974221+qayyim24@users.noreply.github.com>
+Date:   Thu Apr 2 11:23:51 2020 +0100
+
+    Merge pull request #17 from nshyam97/Stack2_graphs
+    
+    Stack2 graphs
+
+commit cef76959870c7749aceaeffddadb90c879de8ce5
+Author: qayyim24 <qayyim@gmail.com>
+Date:   Thu Apr 2 11:09:00 2020 +0100
+
+    Added AIRCON request graph.
+
+commit fd6b51911846c3e97bb880131277a4dffeda567f
+Author: qayyim24 <qayyim@gmail.com>
+Date:   Thu Apr 2 02:09:23 2020 +0100
+
+    Updated graph scripts
+    
+    Updated graph scripts to add data fro Feb 18-19 2020 and removed need for index of hours for plotting.
+
+commit b925ee5a7f49b648feb9ae8c2658234c4d2be8e5
+Author: qayyim24 <qayyim@gmail.com>
+Date:   Thu Apr 2 01:16:25 2020 +0100
+
+    Updated Script for Graph Plot
+
+commit eead2dd859ee65288ded286c5859c388f1344029
+Author: qayyim24 <qayyim@gmail.com>
+Date:   Wed Apr 1 23:11:44 2020 +0100
+
+    Modified script
+    
+    Removed hard coding of working directory
+
+commit fb433a934ff884d1be8e73b5925f2aadd2c2c7b4
+Author: Nish Shyam <nshyam668@gmail.com>
+Date:   Wed Apr 1 11:10:48 2020 +0100
+
+    Create all-graphs.R (#16)
+    
+    Co-authored-by: kautharroslan <57093329+kautharroslan@users.noreply.github.com>
+
+commit bb5bc869809088acb839639685398336769ecc46
+Author: Nish Shyam <nshyam668@gmail.com>
+Date:   Tue Mar 31 10:26:42 2020 +0100
+
+    Stack 1 EDA (#15)
+    
+    * Started work on EDA
+    
+    * Added summary for days
+    
+    * Added summaries for each hour
+    
+    * Cleaned EDA code and focused on days with significant spikes
+    
+    * Added power day and hour data
+    
+    * Added power comparison graph
+
+commit eb63ed80c1bd3d5845e31e4f46d99d882755af07
+Author: qayyim24 <52974221+qayyim24@users.noreply.github.com>
+Date:   Mon Mar 30 11:48:35 2020 +0100
+
+    Stack 2 (#14)
+    
+    * Updated library list
+    
+    Removed list of libraries to load and replaced with "tidyverse".
+    
+    * Updated script
+    
+    Updated libraries to add plyr.
+    Updated mydir variable.
+    Updated filenames for stack 2
+    
+    * Stack 2 Changes
+    
+    Updated script to retrieve and combine stack 2 data.
+    
+    * Added "system_data"
+    
+    Added system data files and combined them.
+    
+    * Removed columns
+    
+    Removed columns from dataframes that are not required or inaccurate according to data_dictionary file.
+    
+    * Generated .csv file for P_demand
+    
+    Co-authored-by: Nish Shyam <nshyam668@gmail.com>
+
+commit 27a9a1bf19002c6fe793f62ae611ccfe7b8d34b9
+Author: Nish Shyam <nshyam668@gmail.com>
+Date:   Sun Mar 29 22:57:39 2020 +0100
+
+    Sorted data by time (#13)
+
+commit 0c7ea7bc2da2755eb4068520cb0c242eaed0ad1f
+Author: Nish Shyam <nshyam668@gmail.com>
+Date:   Sun Mar 29 15:33:09 2020 +0100
+
+    Removed ID column from combining (#12)
+
+commit 4e190e00b2dff977e3e6c0cd3e2f10baf7c41f02
+Author: Nish Shyam <nshyam668@gmail.com>
+Date:   Fri Mar 27 14:39:23 2020 +0000
+
+    Master cleaning (#11)
+    
+    * Deleted unnecessary files
+    
+    * Deleted unncessary files
+
+commit 3b0184d3ea041f46b28f0f102543a368af27d892
+Author: stanlypalathingal <57093376+stanlypalathingal@users.noreply.github.com>
+Date:   Fri Mar 27 14:35:11 2020 +0000
+
+    Stack3 1 (#10)
+    
+    * Update merging.Rmd
+    
+    * Revert "Update merging.Rmd"
+    
+    This reverts commit 469711a5e56e8ca46fc00e496cbcdf5723c945be.
+    
+    * removed duplicates
+    
+    * update
+    
+    Co-authored-by: stanlypalathingal <b9058957@newcastle.ac.uk>
+    Co-authored-by: Nish Shyam <nshyam668@gmail.com>
+
+commit 1a3db30f6d7b49043e0b42de890efe47377221bc
+Author: Nish Shyam <nshyam668@gmail.com>
+Date:   Fri Mar 27 13:41:07 2020 +0000
+
+    Deleted unnecessary files (#8)
+
+commit 52e127c8d7485532e8551bf939624506ab67f86f
+Author: Nish Shyam <nshyam668@gmail.com>
+Date:   Fri Mar 27 13:35:50 2020 +0000
+
+    Efficient data combining (#7)
+    
+    * Added merging file
+    
+    * finished merge file
+    
+    * Amended data combining to a more efficient implementation
+
+commit 9e1a3d5dee1a9e7d25cec778c536b4a98c7b5826
+Merge: 8c237e0 3a40a84
+Author: Nish Shyam <nshyam668@gmail.com>
+Date:   Fri Mar 27 10:40:57 2020 +0000
+
+    Merge pull request #6 from nshyam97/stack4
+    
+    Stack4
+
+commit 3a40a841229d44c41fa1aac8ba8193cb58bf020d
+Author: kautharroslan <57093329+kautharroslan@users.noreply.github.com>
+Date:   Fri Mar 27 18:17:17 2020 +0800
+
+    EDA stack4 initial
+
+commit 152bfdd84d766a69dcd442d13dcd9aa871855688
+Author: kautharroslan <57093329+kautharroslan@users.noreply.github.com>
+Date:   Fri Mar 27 18:15:22 2020 +0800
+
+    stack4 merged initial
+
+commit 8c237e0738e442db8bac43cb64964c484209eb2a
+Merge: e48eacd 7dd723c
+Author: Nish Shyam <nshyam668@gmail.com>
+Date:   Thu Mar 26 10:01:27 2020 +0000
+
+    Merge pull request #5 from nshyam97/stack4
+    
+    Stack4
+
+commit 7dd723c685ab62189d34450b54cffd66c632179d
+Author: kautharroslan <57093329+kautharroslan@users.noreply.github.com>
+Date:   Thu Mar 26 16:12:13 2020 +0800
+
+    Delete stack4_cleaning.R
+
+commit e48eacd2ee258f018d62d42bbb52a36c0be699d0
+Merge: a18014e 51c6877
+Author: Nish Shyam <nshyam668@gmail.com>
+Date:   Wed Mar 25 19:10:21 2020 +0000
+
+    Merge pull request #4 from nshyam97/stack3
+    
+    Stack3
+
+commit 74f1559b1ec33260fb9d52c3c380152819aa9a23
+Author: kautharroslan <57093329+kautharroslan@users.noreply.github.com>
+Date:   Thu Mar 26 00:56:42 2020 +0800
+
+    stack 4 initial upload
+
+commit 51c6877e1662af0122d4d6996b7b12ecfdc2946d
+Merge: ce5bf9d 6514005
+Author: stanlypalathingal <57093376+stanlypalathingal@users.noreply.github.com>
+Date:   Fri Mar 20 22:58:13 2020 +0000
+
+    Merge branch 'stack3' of https://github.com/nshyam97/Group-Project-CSC8633 into stack3
+
+commit 6514005811a5ea1f3573ce2feb34f4e0d2b6fe6b
+Author: stanlypalathingal <57093376+stanlypalathingal@users.noreply.github.com>
+Date:   Fri Mar 20 22:50:28 2020 +0000
+
+    Delete data-combining.R
+
+commit ce5bf9d5d4ca004973c9f2e13a324de7c2243aa7
+Author: stanlypalathingal <57093376+stanlypalathingal@users.noreply.github.com>
+Date:   Fri Mar 20 22:48:24 2020 +0000
+
+    Update EDA.Rmd
+
+commit b06d646a420485dceef37e1f438228d2b6acb95a
+Author: stanlypalathingal <b9058957@newcastle.ac.uk>
+Date:   Fri Mar 20 22:38:56 2020 +0000
+
+    small updates
+
+commit f0a12f3c7c3ddb18fe2b9a2e8f04a07e9513615b
+Merge: e73f799 a18014e
+Author: stanlypalathingal <b9058957@newcastle.ac.uk>
+Date:   Thu Mar 5 14:50:51 2020 +0000
+
+    n
+
+commit e73f799b96a56f4a1e993aa3256263e410e84273
+Author: stanlypalathingal <b9058957@newcastle.ac.uk>
+Date:   Wed Mar 4 16:45:01 2020 +0000
+
+    first commit
+
+commit a18014e9a91afa18895529b59ee9b6d3c6cdd08c
+Author: Nish Shyam <nshyam668@gmail.com>
+Date:   Sat Feb 29 13:16:52 2020 +0000
+
+    Created .gitignore
+
+commit 481138d5462e270af5787154a066bd00c8bef5d2
+Merge: 4c4b073 c14ce44
+Author: qayyim24 <52974221+qayyim24@users.noreply.github.com>
+Date:   Thu Feb 27 11:42:48 2020 +0000
+
+    Merge pull request #3 from nshyam97/tsibble_test
+    
+    Tsibble test
+
+commit c14ce44bf1e5bab1642518dadcd671f4bbe158d9
+Author: qayyim24 <qayyim@gmail.com>
+Date:   Thu Feb 27 10:51:38 2020 +0000
+
+    Update data-combining.R
+    
+    Added comments to code.
+
+commit 245793f64e266a3a2b7bfbeef6ebacf9c8f6516e
+Author: qayyim24 <qayyim@gmail.com>
+Date:   Thu Feb 27 10:48:32 2020 +0000
+
+    Update data-combining.R
+    
+    Uploading script to retrieve .csvs join and convert to tsibble object.
+
+commit 4c4b0736b6f5d3f8af81fe9427ebbbcdd273e1f9
+Merge: d58a7e5 8ad34cf
+Author: Nish Shyam <nshyam668@gmail.com>
+Date:   Wed Feb 26 16:31:56 2020 +0000
+
+    Merge pull request #2 from nshyam97/stack1
+    
+    update stack 1
+
+commit 8ad34cf63781d8f2645ba994781b9f9d37455240
+Merge: 85e6806 d58a7e5
+Author: Nish Shyam <nshyam668@gmail.com>
+Date:   Wed Feb 26 16:31:45 2020 +0000
+
+    Merge branch 'master' into stack1
+
+commit 85e6806cd504cff75b1827313e70f2322d0c633b
+Author: qayyim24 <52974221+qayyim24@users.noreply.github.com>
+Date:   Wed Feb 26 16:29:20 2020 +0000
+
+    update stack 1
+
+commit d58a7e546d2835523bf18821eb03fb74da8b44d5
+Merge: 581ff2b df5c64d
+Author: Nish Shyam <nshyam668@gmail.com>
+Date:   Wed Feb 26 16:25:54 2020 +0000
+
+    Merge pull request #1 from nshyam97/stack2
+    
+    finished stack 2
+
+commit df5c64d027eeba361c03cee98d05502c5fed2c4b
+Author: qayyim24 <52974221+qayyim24@users.noreply.github.com>
+Date:   Wed Feb 26 16:23:30 2020 +0000
+
+    update
+
+commit 581ff2be2f030cf03f157ef61ce543e632e9a665
+Author: Qayyim <b9012230@newcastle.ac.uk>
+Date:   Wed Feb 26 16:09:34 2020 +0000
+
+    first commit

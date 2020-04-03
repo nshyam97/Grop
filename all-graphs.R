@@ -7,9 +7,6 @@ library(ggplot2)
 library(scales)
 options(digits = 6)
 
-# Set working directory
-#setwd("~/Desktop/KAUTHAR/MSc Data Science/10. Group Project/")
-
 # Read csv files
 A = read.csv("A.csv")
 B = read.csv("B.csv")
@@ -670,4 +667,4 @@ ggplot(data = B) +
   theme(legend.position = "right", axis.text.x = element_text(angle = 45, hjust = 1)) +
   labs(y = "Aircon Request (1 = Request)") +
   scale_x_datetime(breaks = "2 weeks", labels = date_format("%d-%m-%y")) +
-  scale_y_continuous(sec.axis = sec_axis(~.*12, name = "Temperature (°C)"))
+  scale_y_continuous(sec.axis = sec_axis(~.*12, name = "Temperature (?C)"))
